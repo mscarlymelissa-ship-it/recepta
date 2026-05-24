@@ -1,23 +1,16 @@
 import twilio from 'twilio'
-import { createClient } from '@supabase/supabase-js'
-
-const supabase = createClient(
-  process.env.NEXT_PUBLIC_SUPABASE_URL,
-  process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
-)
+import { supabase } from '../../../lib/supabase'
 
 export async function POST(request) {
   const formData = await request.formData()
   const callerNumber = formData.get('From')
 
-  // Save lead to Supabase
   await supabase.from('Leads').insert([{
     phone: callerNumber,
     message: 'Missed call - awaiting response',
     status: 'waiting'
   }])
 
-  // Send SMS back to caller
   const client = twilio(
     process.env.TWILIO_ACCOUNT_SID,
     process.env.TWILIO_AUTH_TOKEN
@@ -29,7 +22,6 @@ export async function POST(request) {
     to: callerNumber
   })
 
-  // Return TwiML response
   return new Response('<Response></Response>', {
     headers: { 'Content-Type': 'text/xml' }
   })
