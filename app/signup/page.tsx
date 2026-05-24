@@ -28,26 +28,14 @@ export default function Signup() {
         business_name: businessName,
         notification_phone: phone,
       }])
-
-      // Provision a local Twilio number
       await fetch('/api/provision-number', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ 
+        body: JSON.stringify({
           userId: data.user.id,
           areaCode: phone.replace(/\D/g, '').slice(1, 4)
         })
       })
-
-      router.push('/dashboard')
-    }
-  }
-    if (data.user) {
-      await supabase.from('contractors').insert([{
-        id: data.user.id,
-        business_name: businessName,
-        notification_phone: phone,
-      }])
       router.push('/dashboard')
     }
   }
