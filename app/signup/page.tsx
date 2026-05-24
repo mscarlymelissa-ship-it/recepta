@@ -28,14 +28,18 @@ export default function Signup() {
         business_name: businessName,
         notification_phone: phone,
       }])
-      await fetch('/api/provision-number', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          userId: data.user.id,
-          areaCode: phone.replace(/\D/g, '').slice(1, 4)
+      try {
+        await fetch('/api/provision-number', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            userId: data.user.id,
+            areaCode: phone.replace(/\D/g, '').slice(1, 4)
+          })
         })
-      })
+      } catch (e) {
+        console.log('Provisioning failed, continuing anyway')
+      }
       router.push('/dashboard')
     }
   }
