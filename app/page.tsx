@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react'
 import { supabase } from '../lib/supabase'
 
 export default function Home() {
-  const [leads, setLeads] = useState([])
+  const [leads, setLeads] = useState<any[]>([])
 
 useEffect(() => {
   async function getLeads() {
