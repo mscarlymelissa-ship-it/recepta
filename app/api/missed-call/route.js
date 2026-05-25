@@ -3,7 +3,7 @@ import { createClient } from '@supabase/supabase-js'
 
 export async function POST(request) {
   const supabase = createClient(
-    process.env.NEXT_PUBLIC_SUPABASE_URL,
+    'https://osiouwgiaoldctuvahxb.supabase.co',
     process.env.SUPABASE_SERVICE_KEY
   )
 
