@@ -133,8 +133,20 @@ export default function Dashboard() {
             <div key={lead.id} style={{ padding: '1rem 1.25rem', borderBottom: i < filtered.length - 1 ? '0.5px solid #f0f0f0' : 'none', display: 'flex', alignItems: 'center', gap: '12px' }}>
               <div style={{ width: '36px', height: '36px', borderRadius: '50%', background: '#f5f5f3', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, fontSize: '16px' }}>📞</div>
               <div style={{ flex: 1, minWidth: 0 }}>
-                <div style={{ fontSize: '14px', fontWeight: '500', color: '#111' }}>{lead.phone}</div>
-                <div style={{ fontSize: '13px', color: '#888', marginTop: '2px', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{lead.message || 'No message yet'}</div>
+                <div style={{ fontSize: '14px', fontWeight: '500', color: '#111' }}>
+                  {lead.name ? `${lead.name} — ${lead.phone}` : lead.phone}
+                </div>
+                <div style={{ fontSize: '13px', color: '#888', marginTop: '2px', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
+                  {lead.message || 'No message yet'}
+                </div>
+                {lead.urgency && (
+                  <div style={{ display: 'flex', gap: '6px', marginTop: '4px', flexWrap: 'wrap' }}>
+                    <span style={{ fontSize: '11px', padding: '2px 8px', borderRadius: '20px', background: lead.urgency === 'emergency' ? '#fef2f2' : lead.urgency === 'soon' ? '#FAEEDA' : '#E6F1FB', color: lead.urgency === 'emergency' ? '#dc2626' : lead.urgency === 'soon' ? '#633806' : '#0C447C' }}>
+                      {lead.urgency === 'emergency' ? '🚨 Emergency' : lead.urgency === 'soon' ? '📅 This week' : '💬 Quote only'}
+                    </span>
+                    {lead.address && <span style={{ fontSize: '11px', color: '#aaa' }}>📍 {lead.address}</span>}
+                  </div>
+                )}
               </div>
               <div style={{ textAlign: 'right', flexShrink: 0 }}>
                 <div style={{ fontSize: '12px', color: '#aaa', marginBottom: '6px' }}>{timeAgo(lead.created_at)}</div>
