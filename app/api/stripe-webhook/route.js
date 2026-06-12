@@ -5,7 +5,7 @@ export async function POST(request) {
   const stripe = new Stripe(process.env.STRIPE_SECRET_KEY)
 
   const supabase = createClient(
-    process.env.NEXT_PUBLIC_SUPABASE_URL,
+    'https://osiouwgiaoldctuvahxb.supabase.co',
     process.env.SUPABASE_SERVICE_KEY
   )
 
@@ -37,7 +37,7 @@ export async function POST(request) {
 
   if (event.type === 'customer.subscription.deleted') {
     const subscription = event.data.object
-    
+
     await supabase.from('contractors')
       .update({ plan: 'free' })
       .eq('stripe_subscription_id', subscription.id)
