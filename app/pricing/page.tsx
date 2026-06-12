@@ -36,6 +36,17 @@ export default function Pricing() {
     window.location.href = url
   }
 
+  const features = [
+    'Local phone number in your area code',
+    'Instant auto-reply SMS to missed calls',
+    'Lead capture form with job details',
+    'Real-time lead dashboard',
+    'Instant SMS notification to your phone',
+    'Custom auto-reply message',
+    '14-day free trial',
+    'Cancel anytime',
+  ]
+
   return (
     <main style={{ minHeight: '100vh', background: '#f5f5f3', display: 'flex', alignItems: 'center', justifyContent: 'center', fontFamily: 'system-ui, sans-serif', padding: '2rem' }}>
       <div style={{ maxWidth: '420px', width: '100%' }}>
@@ -60,11 +71,24 @@ export default function Pricing() {
           <p style={{ fontSize: '14px', color: '#888', marginBottom: '1.5rem' }}>Everything you need to stop losing jobs</p>
 
           <ul style={{ listStyle: 'none', marginBottom: '1.5rem' }}>
-            {[
-              'Local phone number in your area code',
-              'Instant auto-reply SMS to missed calls',
-              'Lead capture form with job details',
-              'Real-time lead dashboard',
-              'Instant SMS notification to your phone',
-              'Custom auto-reply message',
-              '14-d
+            {features.map((feature, i) => (
+              <li key={i} style={{ fontSize: '14px', color: '#555', padding: '7px 0', borderBottom: i < features.length - 1 ? '0.5px solid #f0f0f0' : 'none', display: 'flex', alignItems: 'center', gap: '8px' }}>
+                <span style={{ color: '#1D9E75', fontSize: '16px' }}>✓</span>
+                {feature}
+              </li>
+            ))}
+          </ul>
+
+          <button onClick={handleSubscribe} disabled={loading} style={{ width: '100%', padding: '13px', background: '#1D9E75', color: '#fff', border: 'none', borderRadius: '10px', fontSize: '15px', fontWeight: '500', cursor: 'pointer' }}>
+            {loading ? 'Redirecting to checkout...' : 'Start free trial'}
+          </button>
+          <p style={{ textAlign: 'center', fontSize: '12px', color: '#aaa', marginTop: '0.75rem' }}>No credit card required to start</p>
+        </div>
+
+        <p style={{ textAlign: 'center', fontSize: '13px', color: '#888', marginTop: '1.5rem' }}>
+          Already have an account? <a href="/login" style={{ color: '#1D9E75', textDecoration: 'none' }}>Sign in</a>
+        </p>
+      </div>
+    </main>
+  )
+}
