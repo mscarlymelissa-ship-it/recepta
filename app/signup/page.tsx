@@ -40,7 +40,7 @@ export default function Signup() {
       } catch (e) {
         console.log('Provisioning failed, continuing anyway')
       }
-      router.push('/dashboard')
+      router.push('/onboarding')
     }
   }
 
