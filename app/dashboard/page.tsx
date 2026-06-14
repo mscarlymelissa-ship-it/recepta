@@ -40,6 +40,11 @@ export default function Dashboard() {
     router.push('/login')
   }
 
+  async function updateStatus(leadId: number, newStatus: string) {
+    await supabase.from('Leads').update({ status: newStatus }).eq('id', leadId)
+    setLeads(leads.map(l => l.id === leadId ? { ...l, status: newStatus } : l))
+  }
+
   function timeAgo(date: string) {
     const seconds = Math.floor((new Date().getTime() - new Date(date).getTime()) / 1000)
     if (seconds < 60) return `${seconds}s ago`
@@ -115,7 +120,7 @@ export default function Dashboard() {
           <div style={{ padding: '1rem 1.25rem', borderBottom: '0.5px solid #e5e5e5', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
             <div style={{ fontSize: '14px', fontWeight: '500', color: '#111' }}>Recent leads</div>
             <div style={{ display: 'flex', gap: '4px' }}>
-              {['all', 'waiting', 'replied'].map(f => (
+              {['all', 'waiting', 'replied', 'booked'].map(f => (
                 <button key={f} onClick={() => setFilter(f)} style={{ fontSize: '12px', padding: '4px 10px', borderRadius: '20px', border: '0.5px solid', borderColor: filter === f ? '#9FE1CB' : '#e5e5e5', background: filter === f ? '#E1F5EE' : 'transparent', color: filter === f ? '#0F6E56' : '#888', cursor: 'pointer' }}>
                   {f.charAt(0).toUpperCase() + f.slice(1)}
                 </button>
@@ -150,9 +155,17 @@ export default function Dashboard() {
               </div>
               <div style={{ textAlign: 'right', flexShrink: 0 }}>
                 <div style={{ fontSize: '12px', color: '#aaa', marginBottom: '6px' }}>{timeAgo(lead.created_at)}</div>
-                <span style={{ fontSize: '11px', padding: '3px 8px', borderRadius: '20px', fontWeight: '500', background: lead.status === 'replied' ? '#E1F5EE' : lead.status === 'waiting' ? '#FAEEDA' : '#E6F1FB', color: lead.status === 'replied' ? '#085041' : lead.status === 'waiting' ? '#633806' : '#0C447C' }}>
-                  {lead.status || 'new'}
-                </span>
+                <select
+                  value={lead.status || 'waiting'}
+                  onChange={(e) => updateStatus(lead.id, e.target.value)}
+                  style={{ fontSize: '11px', padding: '3px 8px', borderRadius: '20px', fontWeight: '500', border: '0.5px solid #e5e5e5', cursor: 'pointer', outline: 'none', background: lead.status === 'replied' ? '#E1F5EE' : lead.status === 'booked' ? '#E6F1FB' : lead.status === 'closed' ? '#f5f5f3' : '#FAEEDA', color: lead.status === 'replied' ? '#085041' : lead.status === 'booked' ? '#0C447C' : lead.status === 'closed' ? '#888' : '#633806' }}
+                >
+                  <option value="waiting">Waiting</option>
+                  <option value="replied">Replied</option>
+                  <option value="booked">Booked</option>
+                  <option value="called back">Called back</option>
+                  <option value="closed">Closed</option>
+                </select>
               </div>
             </div>
           ))}
