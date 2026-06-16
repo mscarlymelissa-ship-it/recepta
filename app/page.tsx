@@ -47,7 +47,14 @@ export default async function Home() {
         </div>
         <p style={{ fontSize: '13px', color: '#aaa' }}>14-day free trial. No credit card required.</p>
       </section>
-
+{/* Hero image */}
+<div style={{ margin: '0 auto 0', maxWidth: '780px', padding: '0 2rem' }}>
+  <img 
+    src="/hero.webp" 
+    alt="Tradesperson on the job" 
+    style={{ width: '100%', borderRadius: '16px', display: 'block' }} 
+  />
+</div>
       {/* Dashboard mockup */}
       <div style={{ background: '#f5f5f3', border: '0.5px solid #e5e5e5', borderRadius: '16px', padding: '1.5rem', margin: '3rem auto', maxWidth: '640px' }}>
         <div style={{ display: 'flex', gap: '6px', marginBottom: '1rem' }}>
