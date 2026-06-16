@@ -167,6 +167,7 @@ export default async function Home() {
           <span style={{ fontSize: '15px', fontWeight: '500', color: '#111' }}>Recepta</span>
         </div>
         <p style={{ fontSize: '13px', color: '#aaa' }}>Never lose a job to a missed call again.</p>
+<p style={{ fontSize: '13px', color: '#aaa', marginTop: '0.5rem' }}>Questions? Email us at <a href="mailto:hello@getrecepta.co" style={{ color: '#1D9E75', textDecoration: 'none' }}>hello@getrecepta.co</a></p>
       </footer>
 
     </main>
