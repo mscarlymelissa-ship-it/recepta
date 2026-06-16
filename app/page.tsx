@@ -39,7 +39,7 @@ export default async function Home() {
           Every missed call<br />is a <span style={{ color: '#1D9E75' }}>job you lost.</span>
         </h1>
         <p style={{ fontSize: '17px', color: '#666', lineHeight: '1.6', marginBottom: '2rem', maxWidth: '500px', margin: '0 auto 2rem' }}>
-          Recepta automatically texts back anyone who calls when you are on the tools. Captures their job details and adds them to your lead dashboard.
+          Recepta automatically texts back anyone who calls when you can't pick up. Captures their job details and adds them to your lead dashboard.
         </p>
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '12px', marginBottom: '1rem' }}>
           <a href="/signup" style={{ background: '#1D9E75', color: '#fff', textDecoration: 'none', padding: '13px 24px', borderRadius: '10px', fontSize: '15px', fontWeight: '500' }}>Start free trial</a>
