@@ -25,7 +25,7 @@ export default async function Home() {
         </div>
         <div style={{ display: 'flex', gap: '12px' }}>
           <a href="/login" style={{ fontSize: '14px', color: '#888', textDecoration: 'none', padding: '8px 16px' }}>Sign in</a>
-          <a href="/signup" style={{ fontSize: '14px', background: '#111', color: '#fff', textDecoration: 'none', padding: '8px 16px', borderRadius: '8px', fontWeight: '500' }}>Start free trial</a>
+          <a href="/signup" style={{ fontSize: '14px', background: '#111', color: '#fff', textDecoration: 'none', padding: '8px 16px', borderRadius: '8px', fontWeight: '500' }}>Get started</a>
         </div>
       </nav>
 
@@ -151,7 +151,7 @@ export default async function Home() {
             ))}
           </ul>
           <a href="/signup" style={{ display: 'block', padding: '13px', background: '#1D9E75', color: '#fff', textDecoration: 'none', borderRadius: '10px', fontSize: '15px', fontWeight: '500', marginBottom: '0.75rem' }}></a>
-          <p style={{ fontSize: '12px', color: '#aaa' }}>No credit card required to start</p>
+          <p style={{ fontSize: '12px', color: '#aaa' }}>Cancel anytime. First job recovered pays for itself.</p>
         </div>
       </section>
 
