@@ -2,7 +2,7 @@ import { redirect } from 'next/navigation'
 import { cookies } from 'next/headers'
 
 export default async function Home() {
-  const cookieStore = cookies()
+  const cookieStore = await cookies()
   const hasSession = cookieStore.get('sb-access-token') || cookieStore.get('sb-refresh-token')
   
   if (hasSession) {
@@ -128,7 +128,7 @@ export default async function Home() {
         <div style={{ background: '#fff', border: '2px solid #1D9E75', borderRadius: '16px', padding: '2rem' }}>
           <div style={{ fontSize: '48px', fontWeight: '500', color: '#111', letterSpacing: '-2px', marginBottom: '0.25rem' }}>$49<span style={{ fontSize: '18px', color: '#888', fontWeight: '400' }}>/month</span></div>
           <p style={{ fontSize: '14px', color: '#888', marginBottom: '1.5rem' }}>Everything you need to stop losing jobs</p>
-          <ul style={{ listStyle: 'none', textAlign: 'left', marginBottom: '1.5rem' }}>
+          <ul style={{ listStyle: 'none', textAlign: 'left', marginBottom: '1.5rem', padding: 0 }}>
             {[
               'Local phone number in your area code',
               'Instant auto-reply SMS to missed calls',
