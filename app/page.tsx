@@ -42,7 +42,7 @@ export default async function Home() {
           Recepta automatically texts back anyone who calls when you can't pick up. Captures their job details and adds them to your lead dashboard.
         </p>
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '12px', marginBottom: '1rem' }}>
-          <a href="/signup" style={{ background: '#1D9E75', color: '#fff', textDecoration: 'none', padding: '13px 24px', borderRadius: '10px', fontSize: '15px', fontWeight: '500' }}>Get started/a>
+          <a href="/signup" style={{ background: '#1D9E75', color: '#fff', textDecoration: 'none', padding: '13px 24px', borderRadius: '10px', fontSize: '15px', fontWeight: '500' }}>Get started</a>
           <a href="/pricing" style={{ background: 'transparent', color: '#111', textDecoration: 'none', padding: '13px 24px', borderRadius: '10px', fontSize: '15px', border: '0.5px solid #e5e5e5' }}>See pricing</a>
         </div>
         <p style={{ fontSize: '13px', color: '#aaa' }}>Cancel anytime. First job recovered pays for itself.</p>
