@@ -45,7 +45,7 @@ export default async function Home() {
           <a href="/signup" style={{ background: '#1D9E75', color: '#fff', textDecoration: 'none', padding: '13px 24px', borderRadius: '10px', fontSize: '15px', fontWeight: '500' }}>Start free trial</a>
           <a href="/pricing" style={{ background: 'transparent', color: '#111', textDecoration: 'none', padding: '13px 24px', borderRadius: '10px', fontSize: '15px', border: '0.5px solid #e5e5e5' }}>See pricing</a>
         </div>
-        <p style={{ fontSize: '13px', color: '#aaa' }}>14-day free trial. No credit card required.</p>
+        <p style={{ fontSize: '13px', color: '#aaa' }}>Cancel anytime. First job recovered pays for itself.</p>
       </section>
 {/* Hero image */}
 <div style={{ margin: '0 auto 0', maxWidth: '780px', padding: '0 2rem' }}>
@@ -150,7 +150,7 @@ export default async function Home() {
               </li>
             ))}
           </ul>
-          <a href="/signup" style={{ display: 'block', padding: '13px', background: '#1D9E75', color: '#fff', textDecoration: 'none', borderRadius: '10px', fontSize: '15px', fontWeight: '500', marginBottom: '0.75rem' }}>Start 14-day free trial</a>
+          <a href="/signup" style={{ display: 'block', padding: '13px', background: '#1D9E75', color: '#fff', textDecoration: 'none', borderRadius: '10px', fontSize: '15px', fontWeight: '500', marginBottom: '0.75rem' }}></a>
           <p style={{ fontSize: '12px', color: '#aaa' }}>No credit card required to start</p>
         </div>
       </section>
@@ -163,7 +163,7 @@ export default async function Home() {
               <path d="M15 4L9 2L3 4V9C3 12.5 5.5 15.7 9 17C12.5 15.7 15 12.5 15 9V4Z" stroke="white" strokeWidth="1.5" strokeLinejoin="round"/>
               <path d="M6 9L8 11L12 7" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
             </svg>
-          </div>
+          </div>Get started today
           <span style={{ fontSize: '15px', fontWeight: '500', color: '#111' }}>Recepta</span>
         </div>
         <p style={{ fontSize: '13px', color: '#aaa' }}>Never lose a job to a missed call again.</p>

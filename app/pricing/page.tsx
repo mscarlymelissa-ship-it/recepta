@@ -43,7 +43,7 @@ export default function Pricing() {
     'Real-time lead dashboard',
     'Instant SMS notification to your phone',
     'Custom auto-reply message',
-    '14-day free trial',
+    'No lock-in',
     'Cancel anytime',
   ]
 
@@ -80,9 +80,9 @@ export default function Pricing() {
           </ul>
 
           <button onClick={handleSubscribe} disabled={loading} style={{ width: '100%', padding: '13px', background: '#1D9E75', color: '#fff', border: 'none', borderRadius: '10px', fontSize: '15px', fontWeight: '500', cursor: 'pointer' }}>
-            {loading ? 'Redirecting to checkout...' : 'Start free trial'}
-          </button>
-          <p style={{ textAlign: 'center', fontSize: '12px', color: '#aaa', marginTop: '0.75rem' }}>No credit card required to start</p>
+            {loading ? 'Redirecting to checkout...' : 'Get started today'}
+          </button>Cancel anytime. First job recovered pays for itself.
+          <p style={{ textAlign: 'center', fontSize: '12px', color: '#aaa', marginTop: '0.75rem' }}></p>
         </div>
 
         <p style={{ textAlign: 'center', fontSize: '13px', color: '#888', marginTop: '1.5rem' }}>
